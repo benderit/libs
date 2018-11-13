@@ -17,7 +17,7 @@ void find_so (char * lib1,  char * lib2){
         lib1[0]='.';lib1[1]='/';
         lib2[0]='.';lib2[1]='/';
 
-	while ( (entry = readdir(dir)) != NULL) {
+	while ((entry = readdir(dir))){
 		str = entry->d_name+strlen(entry->d_name)-3;
 		if((str[0] == '.') && (str[1] == 's') && (str[2] == 'o')){
 			i++;
@@ -27,6 +27,10 @@ void find_so (char * lib1,  char * lib2){
 					break;
 				}
 		}
+	}
+	if (i < 2){
+		printf("Can't find 2 libs...exit\n");
+		exit(1);
 	}
 	
 	lib1-=2; lib2-=2;
