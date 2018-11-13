@@ -5,11 +5,12 @@ extern char * processString(char * s){
 	int i, j;
 
 	j=strlen(s)-2;
+	printf("\nget string=%s, j=%d\n", s, j);
 	for(i=0;i<strlen(s);i++){
 		str[i]=s[j];
 		j-=1;
 	}
-	str[i+1]=0;
+	str[i-1]=0;
 
 	return str;
 }
