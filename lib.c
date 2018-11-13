@@ -1,9 +1,6 @@
 #include "lib.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
-extern char * processString(const char * const s){
+extern char * processString(char * s){
 	char *str = (char *) malloc(sizeof(char)*N);
 	int i, j;
 
