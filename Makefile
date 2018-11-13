@@ -6,12 +6,6 @@ run: main.o lib.so lib2.so
 main.o: main.c
 	gcc -Wall -c main.c
 
-libloader.so: loader.o
-	gcc -shared -o libloader.so loader.o -ldl
-
-loader.o: loader.c
-	gcc -Wall -fPIC -c loader.c
-
 lib.so: lib.o
 	gcc -shared -o lib.so lib.o
 
