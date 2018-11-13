@@ -56,7 +56,7 @@ char * execute(char * libname, char * arg){
 
 void parse_file(char * argfile, char * lib1, char * lib2){
         FILE *file;
-        char arr[N];
+        char arr[N], *P_lib_str;
 	printf("\nParsing file %s\n", argfile);
 	
         file = fopen(argfile, "r");
@@ -67,8 +67,10 @@ void parse_file(char * argfile, char * lib1, char * lib2){
 
 	while(fgets(arr, N, file) != NULL){
                 printf("\nLine from file: %s\n", arr);
-		printf("lib1: %s\n", execute(lib1, arr));
-		printf("lib2: %s\n", execute(lib2, arr));
+		printf("lib1: %s\n", P_lib_str=execute(lib1, arr));
+		free(P_lib_str);
+		printf("lib2: %s\n", P_lib_str=execute(lib2, arr));
+		free(P_lib_str);
         }
 
         fclose(file);
